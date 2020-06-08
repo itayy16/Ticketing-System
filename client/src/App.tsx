@@ -32,6 +32,7 @@ export class App extends React.PureComponent<{}, AppState> {
 		return (<ul className='tickets'>
 			{filteredTickets.map((ticket) => (<li key={ticket.id} className='ticket'>
 				<h5 className='title'>{ticket.title}</h5>
+				<span className='content'> {ticket.content} </span>
 				<footer>
 					<div className='meta-data'>By {ticket.userEmail} | { new Date(ticket.creationTime).toLocaleString()}</div>
 				</footer>
