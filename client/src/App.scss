@@ -1,3 +1,7 @@
+.hide {
+	display: none !important;
+}
+
 body {
 	font-family: 'Open Sans', sans-serif;
 
@@ -19,6 +23,7 @@ body {
 		color: #7a92a5;
 		font-size: 12px;
 		margin: 12px 5px;
+		display: inline-block;
 	}
 
 	header {
@@ -78,19 +83,34 @@ body {
 			transition: box-shadow .2s ease-in-out;
 			position: relative;
 
+
 			&:hover {
 				box-shadow: 0 2px 6px 1px #d3d7da;
 			}
 
 			.title {
-				margin: 15px 0;
+				margin: 10px 0;
 				font-size: 16px;
 				font-weight: 400;
 				font-style: normal;
 				color: #20455e;
 			}
-
-
+			
+			.hideButton {
+				border: none;
+				background-color: white;
+				color: #20455e;
+				text-align: right;
+				cursor: pointer;
+				font-size: 12px;
+				opacity:0;
+ 				transition:opacity 0.5s linear;
+			}
+			
+			.hideButton:hover {
+				opacity: 1;
+			}
+	
 			.content {
 				font-size: 15px;
 				font-weight: 300;
@@ -110,8 +130,6 @@ body {
 					flex-shrink: 0;
 				}
 			}
-
-			
 		}
 	}
 }
