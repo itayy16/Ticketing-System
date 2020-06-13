@@ -116,6 +116,17 @@ body {
 				font-weight: 300;
 				font-style: normal;
 				color: #20455e;
+				word-wrap: break-word;
+			}
+
+			.label {
+				background-color: #c4ddf8;
+				color: #092d46;
+				border-color: #c4ddf8;
+				border-radius: 8%;
+				padding: 5px 8px;
+				font-size: 12px;
+				margin-left: 8px;
 			}
 			
 			footer {

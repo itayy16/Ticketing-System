@@ -23,7 +23,7 @@ export class App extends React.PureComponent<{}, AppState> {
 
 	async componentDidMount() {
 		this.setState({
-			tickets: await api.getTickets()
+			tickets: await api.getTickets(this.state.search)
 		});
 	}
 
@@ -50,7 +50,8 @@ export class App extends React.PureComponent<{}, AppState> {
 
 		this.searchDebounce = setTimeout(async () => {
 			this.setState({
-				search: val
+				search: val,
+				tickets: await api.getTickets(val)
 			});
 		}, 300);
 	}
