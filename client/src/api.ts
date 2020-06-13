@@ -10,13 +10,13 @@ export type Ticket = {
 }
 
 export type ApiClient = {
-	getTickets: (value: string) => Promise<Ticket[]>;
+	getTickets: (value: string, page: number) => Promise<Ticket[]>;
 }
 
 export const createApiClient = (): ApiClient => {
 	return {
-		getTickets: (value :string) => {
-			return axios.get(`http://localhost:3232/api/tickets?search=${value}`).then((res) => res.data);
+		getTickets: (value: string = '', page: number = 1) => {
+			return axios.get(`http://localhost:3232/api/tickets?search=${value}&page=${page}`).then((res) => res.data);
 		}
 	}
 }

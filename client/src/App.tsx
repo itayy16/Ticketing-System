@@ -2,11 +2,14 @@ import React from 'react';
 import './App.scss';
 import {createApiClient, Ticket as ticketType} from './api';
 import Ticket from './Ticket';
+import debounce from "lodash.debounce";
+
 
 export type AppState = {
 	tickets?: ticketType[],
 	search: string,
-	hiddenIds: number[];
+	hiddenIds: number[],
+	page: number;
 }
 
 const api = createApiClient();
@@ -15,16 +18,22 @@ export class App extends React.PureComponent<{}, AppState> {
 
 	state: AppState = {
 		search: '',
-		hiddenIds: []
-		
+		hiddenIds: [],
+		page: 0
 	}
 
 	searchDebounce: any = null;
 
 	async componentDidMount() {
 		this.setState({
-			tickets: await api.getTickets(this.state.search)
-		});
+			tickets: await this.fetchNextPageTickets()
+		})
+	}
+
+	fetchNextPageTickets = async () => {
+		let nextPage = this.state.page + 1;
+		this.setState({page: nextPage})
+		return await api.getTickets(this.state.search, nextPage)
 	}
 
 	onHide = (index: number) => {
@@ -48,10 +57,11 @@ export class App extends React.PureComponent<{}, AppState> {
 		
 		clearTimeout(this.searchDebounce);
 
+
 		this.searchDebounce = setTimeout(async () => {
 			this.setState({
 				search: val,
-				tickets: await api.getTickets(val)
+				tickets: await api.getTickets(val,1)
 			});
 		}, 300);
 	}
@@ -60,9 +70,26 @@ export class App extends React.PureComponent<{}, AppState> {
 		this.setState({hiddenIds: []})
 	}
 
+	
+	loadMoreTickets = async () => {
+		let currentTickets = this.state.tickets || []
+		let nextPageTickets = await this.fetchNextPageTickets()
+		this.setState({
+			tickets: [...currentTickets, ...nextPageTickets]
+		})
+	}
+
 	render() {	
 		const {tickets} = this.state;
 		const hiddenTickets = this.state.hiddenIds.length <= 1 ? 'ticket' : 'tickets';
+
+		window.onscroll = debounce(() => {
+			if (window.innerHeight + document.documentElement.scrollTop
+			>= document.documentElement.offsetHeight - 2 * 200
+			) {
+			  this.loadMoreTickets()
+			}
+		  }, 100);
 
 		return (<main>
 			<h1>Tickets List</h1>

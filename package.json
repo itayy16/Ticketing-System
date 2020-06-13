@@ -14,5 +14,10 @@
   "license": "ISC",
   "devDependencies": {
     "lerna": "^3.13.1"
+  },
+  "dependencies": {
+    "@types/lodash.debounce": "^4.0.6",
+    "lodash.debounce": "^4.0.8",
+    "superagent": "^5.2.2"
   }
 }
