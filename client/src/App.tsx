@@ -94,26 +94,26 @@ export class App extends React.PureComponent<{}, AppState> {
         })
     }
 
-    sortFunc = (prop: keyof ticketType) => {
+    sortFunc = (prop: keyof ticketType, key: number) => {
         const { tickets } = this.state
         if (tickets) {
-            const sortOrder =
-                this.state.sortBy === prop ? this.state.sortOrder * -1 : 1
             tickets.sort(function (a: ticketType, b: ticketType) {
+                // labels can be undifined
                 if (prop === 'labels') return -1
                 var result = a[prop] < b[prop] ? -1 : a[prop] > b[prop] ? 1 : 0
-                return result * sortOrder
+                return result * key
             })
             this.setState({
                 tickets: [...tickets],
-                sortOrder: sortOrder,
+                sortOrder: key,
                 sortBy: prop,
             })
         }
     }
 
     handleChange = async (event: any) => {
-        this.sortFunc(event.target.value)
+        let [name, order] = event.target.value.split(' ')
+        this.sortFunc(name, parseInt(order))
         await this.setState({
             sortBy: event.target.value,
         })
@@ -151,14 +151,14 @@ export class App extends React.PureComponent<{}, AppState> {
                     ) : null}
                     <select className="sortButton" onChange={this.handleChange}>
                         <option value="">Choose option</option>
-                        <option value="creationTime">
+                        <option value="creationTime 1">
                             Creation Time: First to Last
                         </option>
-                        <option value="creationTime">
+                        <option value="creationTime -1">
                             Creation Time: Last to First
                         </option>
-                        <option value="title">Title: A to Z </option>
-                        <option value="title">Title: Z to A</option>
+                        <option value="title 1">Title: A to Z </option>
+                        <option value="title -1">Title: Z to A</option>
                     </select>
                     <text className="sortBy">Sort by:</text>
                 </span>
