@@ -4,23 +4,23 @@
         "title": "Need a Little Help with Your Site? Hire a Corvid Web Developer",
         "content": "Here at Wix we strive to support you with this community forum, API references, articles, videos and code examples. But sometimes you might need a little extra help to get your site exactly the way you want it. \nHire a developer from the Wix Arena, an online marketplace with top Corvid web developers from around the world. Submit your project details here, and we’ll find the right professional for you.",
         "userEmail": "jug@nesetal.af",
-		"creationTime": 1542111235544,
-		"labels": ["Corvid", "Api"]
+        "creationTime": 1542111235544,
+        "labels": ["Corvid", "Api"]
     },
     {
         "id": "36043e94-6d21-5d2a-b1eb-f983996e3d79",
         "title": "Wix Code Forum - Guidelines for posting a question",
         "content": "Hi Wix Code community, me again :)\n\nOver the past few weeks, we've discussed ways to make forum questions more accurate, professional and easy to answer to. This is super important, as this helps us be an ever-growing community, where we help one another achieve any goal that comes to mind, regardless of their coding level.\n\nHere's what we came up with:\n\n- Be nice. We love the atmosphere, and we love seeing how much everyone enjoys helping one another. We firmly believe that we should safeguard this culture—this is our space and we should protect it. We have different skills and  different challenges, so don't forget that each one of us was once a code baby :)\n- Do not repeat questions. Use the forum search. There's a great chance that someone has already solved the problem that you are facing. \n- Use meaningful titles. ‘How can I create a collapsing and expanding repeater?’ is a much better title than ‘Help please!’. This makes it easier for people to spot the posts that they can help with.\n- Use Hashtags. makes it #easy #to #follow #topics.\n- Multiple short posts are better than a long one. This allows other people to benefit from our posts after we're done with it. Keeping posts short makes it easy to find answers, and makes the post relevant for more people.\n- Keep questions focused and clear. This will make each question easier to solve, which makes it possible for more people to answer it.\n- Format the text in your question. Use Code blocks, bullets, etc. to make it easier to understand.\n- Refrain from posting a long code. Debugging code is difficult enough when it's a short one. Post only relevant part of code.\n- Provide as many details as possible. Share what you think is right, what you’ve tried to do, and what blocks you. Include any relevant screenshots, code, and URLs to make it easier for others to understand the problem.\n- Acknowledge our peers’ help by marking a 'Top Comment' for the best answer. This will also make it easier to spot the correct answer.\n\n\nLast but not least: WORK HARD, PLAY HARDER!. Have fun in the process ;)\n\n",
         "userEmail": "kekikum@segtaj.gh",
-		"creationTime": 1545880457898,
-		"labels": ["Corvid", "Guidelines"]
+        "creationTime": 1545880457898,
+        "labels": ["Corvid", "Guidelines"]
     },
     {
         "id": "ab6fc754-0e01-5cfb-84b9-cf37c1c0cdb5",
         "title": "Collapse/expand code affecting the page footer\n",
         "content": "I have placed collapse/expand code onto one of my pages, but the footer now has a huge white space above it in the preview. Is there a way to fix this?",
-		"userEmail": "susjorna@jep.sa",
-		"labels": ["Collapse", "Expand"],
+        "userEmail": "susjorna@jep.sa",
+        "labels": ["Collapse", "Expand"],
         "creationTime": 1517833093439
     },
     {
@@ -35,8 +35,8 @@
         "title": "setting up my login page profile",
         "content": "Hi there!\n\nI just want to ask how to fix my problem regarding on my login page.\n\nI watched and followed a tutorial on how to make database and a login page, here's what I have done following the tutorial, I did not mean to say it is wrong but I think I lack of something that I cannot decode on myself and I have a hard time looking since I am not sure what it is.\n\nHere is what I did:\n\n* Database collection\n* A pagecontent where there is:\n\nFirst Name\nLast Name\nEmail\nUpload Profile\nAbout Me\n\nThis page is connected to my database which I did right\n\n* I made a dynamic page wherein it will show the content that I will write from the page content I mentioned above. If I will not write information on that page content, my dynamic page will be blank.\n\nAfter I created a database, a page and a dynamic page, I, then created the login/logout page using codes.\n\nMy concern is this, once I click on my profile, instead of going to my dynamic page, it should be on my page content. Once I put information on that page, then it will show my dynamic page.\nHow can I, or what should I do with that?\n\nThank you for the answers.\n",
         "userEmail": "cube@zo.lv",
-		"creationTime": 1523581514366,
-		"labels": ["Login", "Problem", "Tutorial"]
+        "creationTime": 1523581514366,
+        "labels": ["Login", "Problem", "Tutorial"]
     },
     {
         "id": "42c22972-8daa-5305-9885-659616df6e18",
@@ -50,8 +50,8 @@
         "title": "View Count & Click Count",
         "content": "Hey there,\n\nI have resorted to here, to see if someone can simply help me (it would be greatly appreciated if you could give me your help on this piece of code). I have been trying for a day now, with no luck to get this to work. \n\nI am building an advertising system, which displays adverts across my website. Mostly using repeaters - the ads are stores in an 'Adverts' database - where i can use tags to also control the placement. \n\nI need to be able to do the following:\n\nUpon an Advert being clicked within a repeater, update the Database item click count field which field key would be 'clicks'. \nUpon an Advert being viewed (scrolled over) update the Database item view count field which field key would be 'views'\nOR....update the 'view' count field based on a page being loaded with a repeater/repeater item being on it - if the above is more complex in some way.\n\nHope this makes sense and i would be really grateful for someone's help on this. Much appreciated.\n",
         "userEmail": "an@nagla.gh",
-		"creationTime": 1535681533617,
-		"labels": ["View Count"]
+        "creationTime": 1535681533617,
+        "labels": ["View Count"]
     },
     {
         "id": "e35f54a8-8794-5d1e-915d-202138500e9b",

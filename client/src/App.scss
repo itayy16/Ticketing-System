@@ -1,146 +1,163 @@
 .hide {
-	display: none !important;
+    display: none !important;
 }
 
 body {
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 
-	background-color: #f5f9fc;
-	padding-top: 100px;
-	
-	padding: 50px;
+    background-color: #f5f9fc;
+    padding-top: 100px;
 
-	main {
-		max-width: 1000px;
-		margin: 0 auto;
-	}
+    padding: 50px;
 
-	h1 {
-		font-weight: 300;
-	}
+    main {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
 
-	.results {
-		color: #7a92a5;
-		font-size: 12px;
-		margin: 12px 5px;
-		display: inline-block;
-	}
+    h1 {
+        font-weight: 300;
+    }
 
-	header {
-		width: 100%;
-		flex-shrink: 0;
-		border-radius: 6px;
-		background-color: #fff;
-		box-shadow: 0 2px 6px 1px #e1e5e8;
-		margin-bottom: 14px;
-		display: flex;
-		flex-direction: column;
-		border: 1px solid #fff;
-		padding: 10px 20px;
-		position: relative;
+    .sortBy {
+        color: #092d46;
+        float: right;
+        font-size: 14px;
+        padding: 5px 0px;
+    }
 
-		input {
-			width: 100%;
-			text-overflow: ellipsis;
-			display: inline-block;
-			color: #20455e;
-			font-size: 14px;
-			outline: 0;
-			transition: border .1s ease;
-			resize: none;
-			border: 1px solid #b6c1cd;
-			border: none;
+    .sortButton {
+        align-items: flex-end;
+        float: right;
+        background-color: #f3f3f3;
+        border-color: #e7e7e7;
+        border-top-color: #e7e7e7;
+        color: #092d46;
+        border-radius: 8%;
+        padding: 5px 8px;
+        font-size: 12px;
+        margin-left: 8px;
+    }
 
-			&::placeholder  {
-				color: #b6c1cd;
-			}
-		}
-	}
+    .results {
+        color: #7a92a5;
+        font-size: 12px;
+        margin: 12px 5px;
+        display: inline-block;
+    }
 
-	a {
-		color: #3899ec;
-		cursor: pointer;
-		font-weight: 500;
-		font-size: 12px;
-	}
+    header {
+        width: 100%;
+        flex-shrink: 0;
+        border-radius: 6px;
+        background-color: #fff;
+        box-shadow: 0 2px 6px 1px #e1e5e8;
+        margin-bottom: 14px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #fff;
+        padding: 10px 20px;
+        position: relative;
 
-	.tickets {
+        input {
+            width: 100%;
+            text-overflow: ellipsis;
+            display: inline-block;
+            color: #20455e;
+            font-size: 14px;
+            outline: 0;
+            transition: border 0.1s ease;
+            resize: none;
+            border: 1px solid #b6c1cd;
+            border: none;
 
-		margin: 0;
-		padding: 0;
+            &::placeholder {
+                color: #b6c1cd;
+            }
+        }
+    }
 
-		.ticket {
-			width: 100%;
-			flex-shrink: 0;
-			border-radius: 8px;
-			background-color: #fff;
-			box-shadow: 0 2px 6px 1px #e1e5e8;
-			margin-bottom: 14px;
-			display: flex;
-			flex-direction: column;
-			border: 1px solid #fff;
-			padding: 10px 20px;
-			transition: box-shadow .2s ease-in-out;
-			position: relative;
+    a {
+        color: #3899ec;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 12px;
+    }
 
+    .tickets {
+        margin: 0;
+        padding: 0;
 
-			&:hover {
-				box-shadow: 0 2px 6px 1px #d3d7da;
-			}
+        .ticket {
+            width: 100%;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 2px 6px 1px #e1e5e8;
+            margin-bottom: 14px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #fff;
+            padding: 10px 20px;
+            transition: box-shadow 0.2s ease-in-out;
+            position: relative;
 
-			.title {
-				margin: 10px 0;
-				font-size: 16px;
-				font-weight: 400;
-				font-style: normal;
-				color: #20455e;
-			}
-			
-			.hideButton {
-				border: none;
-				background-color: white;
-				color: #20455e;
-				text-align: right;
-				cursor: pointer;
-				font-size: 12px;
-				opacity:0;
- 				transition:opacity 0.5s linear;
-			}
-			
-			.hideButton:hover {
-				opacity: 1;
-			}
-	
-			.content {
-				font-size: 15px;
-				font-weight: 300;
-				font-style: normal;
-				color: #20455e;
-				word-wrap: break-word;
-			}
+            &:hover {
+                box-shadow: 0 2px 6px 1px #d3d7da;
+            }
 
-			.label {
-				background-color: #c4ddf8;
-				color: #092d46;
-				border-color: #c4ddf8;
-				border-radius: 8%;
-				padding: 5px 8px;
-				font-size: 12px;
-				margin-left: 8px;
-			}
-			
-			footer {
+            .title {
+                margin: 10px 0;
+                font-size: 16px;
+                font-weight: 400;
+                font-style: normal;
+                color: #20455e;
+            }
 
-				display: flex;
-				justify-content: space-between;
-				
-				.meta-data {
-					color: #7a92a5;
-					font-size: 12px;
-					margin: 10px 0;
-					flex-shrink: 0;
-				}
-			}
-		}
-	}
+            .hideButton {
+                border: none;
+                background-color: white;
+                color: #20455e;
+                text-align: right;
+                cursor: pointer;
+                font-size: 12px;
+                opacity: 0;
+                transition: opacity 0.5s linear;
+            }
+
+            .hideButton:hover {
+                opacity: 1;
+            }
+
+            .content {
+                font-size: 15px;
+                font-weight: 300;
+                font-style: normal;
+                color: #20455e;
+                word-wrap: break-word;
+            }
+
+            .label {
+                background-color: #c4ddf8;
+                color: #092d46;
+                border-color: #c4ddf8;
+                border-radius: 8%;
+                padding: 5px 8px;
+                font-size: 12px;
+                margin-left: 8px;
+            }
+
+            footer {
+                display: flex;
+                justify-content: space-between;
+
+                .meta-data {
+                    color: #7a92a5;
+                    font-size: 12px;
+                    margin: 10px 0;
+                    flex-shrink: 0;
+                }
+            }
+        }
+    }
 }
