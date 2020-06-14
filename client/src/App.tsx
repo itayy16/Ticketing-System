@@ -9,7 +9,6 @@ export type AppState = {
     search: string
     hiddenIds: number[]
     page: number
-    sortOrder: number
     sortBy: keyof ticketType
 }
 
@@ -20,7 +19,6 @@ export class App extends React.PureComponent<{}, AppState> {
         search: '',
         hiddenIds: [],
         page: 0,
-        sortOrder: 1,
         sortBy: 'id',
     }
 
@@ -105,7 +103,6 @@ export class App extends React.PureComponent<{}, AppState> {
             })
             this.setState({
                 tickets: [...tickets],
-                sortOrder: key,
                 sortBy: prop,
             })
         }
