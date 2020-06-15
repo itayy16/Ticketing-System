@@ -104,6 +104,11 @@ body {
 
             &:hover {
                 box-shadow: 0 2px 6px 1px #d3d7da;
+
+                .hideButton {
+                    transition: opacity 0.5s linear;
+                    opacity: 1;
+                }
             }
 
             .title {
@@ -115,6 +120,7 @@ body {
             }
 
             .hideButton {
+                outline: none;
                 border: none;
                 background-color: white;
                 color: #20455e;
@@ -122,11 +128,6 @@ body {
                 cursor: pointer;
                 font-size: 12px;
                 opacity: 0;
-                transition: opacity 0.5s linear;
-            }
-
-            .hideButton:hover {
-                opacity: 1;
             }
 
             .content {
