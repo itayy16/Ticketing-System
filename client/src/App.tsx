@@ -51,15 +51,9 @@ export class App extends React.PureComponent<{}, AppState> {
     }
 
     renderTickets = (tickets: ticketType[]) => {
-        const filteredTickets = tickets.filter((t) =>
-            (t.title.toLowerCase() + t.content.toLowerCase()).includes(
-                this.state.search.toLowerCase()
-            )
-        )
-
         return (
             <ul className="tickets">
-                {filteredTickets.map((ticket, index) => (
+                {tickets.map((ticket, index) => (
                     <Ticket
                         ticket={ticket}
                         hide={this.state.hiddenIds.includes(index)}
@@ -75,7 +69,8 @@ export class App extends React.PureComponent<{}, AppState> {
         this.searchDebounce = setTimeout(async () => {
             this.setState({
                 search: val,
-                tickets: await api.getTickets(val, this.state.page),
+                page: 1,
+                tickets: await api.getTickets(val, 1),
             })
         }, 300)
     }

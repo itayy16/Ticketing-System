@@ -16,7 +16,6 @@ const Ticket = ({ ticket, hide, onHide }: ticketType) => {
             </div>
         )
     }
-
     return (
         <li key={ticket.id} className={`ticket ${hide && 'hide'}`}>
             <button className="hideButton" onClick={onHide}>
