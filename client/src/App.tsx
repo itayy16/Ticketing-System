@@ -56,6 +56,7 @@ export class App extends React.PureComponent<{}, AppState> {
                 {tickets.map((ticket, index) => (
                     <Ticket
                         ticket={ticket}
+                        key={index}
                         hide={this.state.hiddenIds.includes(index)}
                         onHide={() => this.onHide(index)}
                     />
@@ -152,7 +153,7 @@ export class App extends React.PureComponent<{}, AppState> {
                         <option value="title 1">Title: A to Z </option>
                         <option value="title -1">Title: Z to A</option>
                     </select>
-                    <text className="sortBy">Sort by:</text>
+                    <span className="sortBy">Sort by:</span>
                 </span>
                 {tickets ? this.renderTickets(tickets) : <h2>Loading..</h2>}
             </main>

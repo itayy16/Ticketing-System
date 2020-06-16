@@ -10,8 +10,10 @@ const Ticket = ({ ticket, hide, onHide }: ticketType) => {
         const filterLabels = labels ? labels : []
         return (
             <div className="labels">
-                {filterLabels.map((label) => (
-                    <button className="label">{label}</button>
+                {filterLabels.map((label, index) => (
+                    <button key={index} className="label">
+                        {label}
+                    </button>
                 ))}
             </div>
         )
