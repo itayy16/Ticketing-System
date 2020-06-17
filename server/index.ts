@@ -19,30 +19,60 @@ app.use((_, res, next) => {
     next()
 })
 
+function getRegexGroup(regex: RegExp, group: number, search: string) {
+    const regexResult = regex.exec(search) || []
+    if (regexResult.length > 0) {
+        const result = regexResult[group + 1]
+        return result
+    }
+}
+
 app.get('/api/tickets', (req, res) => {
     const page = req.query.page || 1
     let search = req.query.search || ''
     let data: Ticket[] = tempData
 
-    const afterRegexp = /after\:(\d{1,2}\/\d{1,2}\/\d{4}) (.*)/ // can validate that the date is always dd/mm/yyyy if needed
-    const afterRegResult = afterRegexp.exec(search) || []
-    if (afterRegResult.length > 0) {
-        const afterDateString = afterRegResult[1]
-        search = afterRegResult[2]
-        const afterTime = moment(afterDateString, 'DD/MM/YYYY').unix()
+    const afterRegex = /after\:(\d{1,2}\/\d{1,2}\/\d{4})/ // after:22/11/2017
+    const afterValue = getRegexGroup(afterRegex, 0, search)
+    if (afterValue) {
+        const afterTime = moment.utc(afterValue, 'DD/MM/YYYY').unix()
         data = data.filter((ticket) => {
             return ticket.creationTime / 1000 >= afterTime
         })
-        if (isNaN(afterTime)) {
-            data = []
-        }
     }
 
-    data = data.filter((t) =>
-        (t.title.toLowerCase() + t.content.toLowerCase()).includes(
-            search.toLowerCase()
+    const beforeRegex = /before\:(\d{1,2}\/\d{1,2}\/\d{4})/ // before:22/11/2019
+    const beforeValue = getRegexGroup(beforeRegex, 0, search)
+    if (beforeValue) {
+        const beforeTime = moment
+            .utc(beforeValue + ' 24:00:00', 'DD/MM/YYYY hh:mm')
+            .unix() // the end of the day
+        data = data.filter((ticket) => {
+            return ticket.creationTime / 1000 <= beforeTime
+        })
+    }
+
+    const fromEmailRegex = /from\:(\w*@\w*\.\w*)/ //from:myemail@email.com
+    const fromEmailValue = getRegexGroup(fromEmailRegex, 0, search)
+    if (fromEmailValue) {
+        data = data.filter((ticket) => {
+            return ticket.userEmail === fromEmailValue
+        })
+    }
+
+    //Filters the search value from search filters
+    let filteredSearch = search.replace(afterRegex, '')
+    filteredSearch = filteredSearch.replace(beforeRegex, '')
+    filteredSearch = filteredSearch.replace(fromEmailRegex, '')
+    filteredSearch = filteredSearch.trim()
+
+    if (filteredSearch) {
+        data = data.filter((t) =>
+            (t.title.toLowerCase() + t.content.toLowerCase()).includes(
+                filteredSearch.toLowerCase()
+            )
         )
-    )
+    }
 
     const paginatedData = data.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
     res.send(paginatedData)

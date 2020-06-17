@@ -16,10 +16,12 @@
     "lerna": "^3.13.1"
   },
   "dependencies": {
+    "@types/cors": "^2.8.6",
     "@types/lodash.debounce": "^4.0.6",
     "@types/moment": "^2.13.0",
     "@types/react-select": "^3.0.13",
     "@types/react-show-more": "^2.0.2",
+    "cors": "^2.8.5",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.26.0",
     "react-select": "^3.1.0",

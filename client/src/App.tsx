@@ -88,14 +88,15 @@ export class App extends React.PureComponent<{}, AppState> {
         })
     }
 
-    sortFunc = (prop: keyof ticketType, key: number) => {
+    // if sortOrder = 1 regular order, otherwise reverse order
+    sortFunc = (prop: keyof ticketType, sortOrder: number) => {
         const { tickets } = this.state
         if (tickets) {
             tickets.sort(function (a: ticketType, b: ticketType) {
                 // labels can be undifined
                 if (prop === 'labels') return -1
                 var result = a[prop] < b[prop] ? -1 : a[prop] > b[prop] ? 1 : 0
-                return result * key
+                return result * sortOrder
             })
             this.setState({
                 tickets: [...tickets],

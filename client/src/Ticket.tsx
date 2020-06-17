@@ -1,6 +1,5 @@
 import React from 'react'
 import ShowMoreText from 'react-show-more'
-
 import { Ticket as TicketType } from './api'
 
 type ticketType = { ticket: TicketType; hide: boolean; onHide: any }
